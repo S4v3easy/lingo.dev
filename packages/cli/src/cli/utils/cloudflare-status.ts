@@ -16,7 +16,9 @@ export async function checkCloudflareStatus(): Promise<CloudflareStatusResponse 
     if (response.ok) {
       return await response.json();
     }
-  } catch (error) {}
+  } catch (error) {
+    console.error("Failed to check Cloudflare status:", error);
+  }
   return null;
 }
 

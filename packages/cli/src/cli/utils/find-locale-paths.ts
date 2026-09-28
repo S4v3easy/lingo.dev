@@ -61,7 +61,9 @@ function findLocaleFilesWithExtension(ext: string) {
         try {
           resolveLocaleCode(locale as LocaleCode);
           return { locale, file };
-        } catch (e) { }
+        } catch (e) {
+          console.error(`Failed to resolve locale code for "${locale}":`, e);
+        }
       }
       return { file, locale: null };
     })
